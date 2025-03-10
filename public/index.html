@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bienvenue sur mon site hébergé sur Azure !</h1>
+    <p>Backend en Node.js et Express 🚀</p>
+    <button onclick="getMessage()">Obtenir un message du serveur</button>
+    <p id="message"></p>
+
+    <script>
+        async function getMessage() {
+            const response = await fetch('/api/message');
+            const data = await response.json();
+            document.getElementById('message').innerText = data.message;
+        }
+    </script>
+</body>
+</html>
